@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
+
+  resources :shouts, only: [:new, :create, :show]
 
   get "/sign_up" => "users#new"
   get "/sign_in" => "sessions#new"

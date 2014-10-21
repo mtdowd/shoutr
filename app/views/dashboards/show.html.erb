@@ -1,7 +1,9 @@
 <h1><%= current_user.username %>'s Dashboard</h1>
 
 <div>
-  <% current_user.shouts.each do |shout| %>
-    <%= shout.content %>
-  <% end %>
+  <%= link_to "Create New Shout", new_shout_path %>
+</div>
+
+<div>
+  <%= render current_user.shouts %>
 </div>
