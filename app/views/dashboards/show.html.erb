@@ -1,7 +1,15 @@
 <h1><%= current_user.username %>'s Dashboard</h1>
 
 <div>
-  <%= link_to "Create New Shout", new_shout_path %>
+  <fieldset>
+  <%= form_for @shout do |form| %>
+    <div>
+      <%= form.label :content %>
+      <%= form.text_field :content %>
+      <%= form.submit %>
+    </div>
+  <% end %>
+  </fieldset>
 </div>
 
 <div>

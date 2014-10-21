@@ -9,8 +9,8 @@
 <body>
 
   <% if signed_in? %>
-    <p><b>You are signed in as: <%= link_to current_user.username, user_path(current_user) %></b></p>
-    <%= link_to "Sign out", session_path, method: :delete %>
+    <p><b>You are signed in as: <%= link_to current_user.username, user_path(current_user) %> | | </b>
+    <%= link_to "Sign out", session_path, method: :delete %></p>
   <% else %>
     <p><%= link_to "Sign in", sign_in_path %>
     - or - 

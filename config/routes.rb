@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     root "dashboards#show", as: :dashboard
   end
 
+  constraints Monban::Constraints::SignedOut.new do
+    root "sessions#new"
+  end
+
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show] do
     member do
@@ -19,7 +23,5 @@ Rails.application.routes.draw do
 
   get "/sign_up" => "users#new"
   get "/sign_in" => "sessions#new"
-
-  root to: "sessions#new"
 
 end
