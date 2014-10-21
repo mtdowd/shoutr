@@ -1,6 +1,7 @@
 
 <div>
-    <p>Shout: <%= shout.content %></p>
-    <p>Shouted by: <%= link_to shout.username, shout.user %></p>
+  <p><b><i><%= shout.content %></i></b></p>
+  <p> -- Shouted by: <%= link_to shout.username, shout.user %>
+   - - Shouted <%= time_ago_in_words(shout.created_at) %> ago</p>
 </div>
 

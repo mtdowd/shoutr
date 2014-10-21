@@ -23,4 +23,19 @@ class User < ActiveRecord::Base
     followed_users.destroy(user)
   end
 
+  def show
+    @user = User.find_by(username: params[:id])
+    @shouts = @user.shouts
+  end
+
+  def timeline
+    Shout.where(user_id: timeline_author_ids).order(created_at: :desc)
+  end
+
+  private
+
+  def timeline_author_ids
+    [id] + followed_user_ids
+  end
+ 
 end

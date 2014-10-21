@@ -1,9 +1,13 @@
 <header>
 <h2><%= @user.username %>'s Profile</h2>
-<% if @user.followers.include? current_user %>
-  <%= button_to "Unfollow #{@user.username}", follow_user_path(@user), method: :delete %>
+<% if @user == current_user %>
+  <p>Welcome to your profile!</p>
 <% else %>
-  <%= button_to "Follow #{@user.username}", follow_user_path(@user) %>
+  <% if @user.followers.include? current_user %>
+    <%= button_to "Unfollow #{@user.username}", follow_user_path(@user), method: :delete %>
+  <% else %>
+    <%= button_to "Follow #{@user.username}", follow_user_path(@user) %>
+  <% end %>
 <% end %>
 
 <p><i><%= @user.username %> has <%= pluralize(@user.followers.count, "follower") %></i></p>
