@@ -1,6 +1,21 @@
+<header>
 <h1><%= @user.username %>'s Profile</h1>
+<% if @user.followers.include? current_user %>
+  <%= button_to "Unfollow #{@user.username}", follow_user_path(@user), method: :delete %>
+<% else %>
+  <%= button_to "Follow #{@user.username}", follow_user_path(@user) %>
+<% end %>
+
+<p><%= pluralize(@user.followers.count, "follower") %></p>
+</header>
+
+
+<section>
+  <h4><%= link_to "Create New Shout", new_shout_path %></h4>
+</section>
 
 <div>
+  <h2><%= @user.username %>'s Shouts</h2>
   <%= render @user.shouts %>
 </div>
 

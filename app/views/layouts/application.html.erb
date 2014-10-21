@@ -17,9 +17,13 @@
     <%= link_to "Sign up", sign_up_path %></p>
   <% end %>
 
-  <% flash.each do |name, message| %>
-    <%= content_tag :div, message, class: name %>
-  <% end %>
+  <div>
+    <p>
+    <% flash.each do |name, message| %>
+      <%= content_tag :div, message, class: name %>
+    <% end %>
+    </p>
+  </div>
 
 <%= yield %>
 
