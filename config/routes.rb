@@ -19,7 +19,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :shouts, only: [:new, :create, :show]
+  resources :text_shouts, only: [:create]
+  resources :photo_shouts, only: [:create]
 
   get "/sign_up" => "users#new"
   get "/sign_in" => "sessions#new"

@@ -1,16 +1,31 @@
 <h1><%= current_user.username %>'s Dashboard</h1>
 
-<div>
+<section>
+  <h3>Create Text Shout</h3>
   <fieldset>
-  <%= form_for @shout do |form| %>
+  <%= form_for @text_shout do |form| %>
     <div>
-      <%= form.label :content %>
-      <%= form.text_field :content %>
-      <%= form.submit %>
+      <%= form.label :body, "Text: " %>
+      <%= form.text_field :body %>
+      <%= form.submit "New Text Shout" %>
     </div>
   <% end %>
   </fieldset>
-</div>
+</section>
+
+<section>
+  <h3>Create Photo Shout</h3>
+  <fieldset>
+  <%= form_for @photo_shout do |form| %>
+    <div>
+      <%= form.label :url, "url: " %>
+      <%= form.text_field :url %>
+      <%= form.submit "New Photo Shout" %>
+    </div>
+  <% end %>
+  </fieldset>
+</section>
+
 
 <h2>Your Timeline</h2>
 <div>
