@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :text_shouts, only: [:create]
   resources :photo_shouts, only: [:create]
+  resource :search, only: [:show]
 
   get "/sign_up" => "users#new"
   get "/sign_in" => "sessions#new"

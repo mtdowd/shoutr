@@ -1,0 +1,22 @@
+<h1>Search Results for "<%= params[:query] %>"</h1>
+
+<section>
+  <h3>Shout Results:</h3>
+  <% if @shout_results.present? %>
+    <%= render @shout_results %>
+  <% else %>
+    <p>No Shouts match your search</p>
+  <% end %>
+</section>
+
+<hr>
+
+<section>
+  <h3>User Results:</h3>
+  <% if @user_results.present? %>
+    <%= render @user_results %>
+  <% else %>
+    <p>No Users match your search</p>
+  <% end %>
+</section>
+

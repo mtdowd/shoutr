@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20141022090551) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "content_type", null: false
-    t.string   "content_id",   null: false
+    t.integer  "content_id",   null: false
   end
 
   add_index "shouts", ["user_id"], name: "index_shouts_on_user_id", using: :btree

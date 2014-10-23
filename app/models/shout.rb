@@ -8,4 +8,8 @@ class Shout < ActiveRecord::Base
     user.username
   end
 
+  def self.text_shout_query(query)
+    where(content_type: "TextShout", content_id: query)
+  end
+
 end

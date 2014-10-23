@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     Shout.where(user_id: timeline_author_ids).order(created_at: :desc)
   end
 
+  def self.user_query(query)
+    where("username ILIKE ?", "%#{query}%")
+  end
+
   private
 
   def timeline_author_ids

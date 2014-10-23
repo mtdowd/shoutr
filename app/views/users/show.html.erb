@@ -18,6 +18,8 @@
 
 <section>
   <h2><%= @user.username %>'s Shouts</h2>
-  <%= render @user.shouts %>
+  <%= render @shouts %>
 </section>
+
+<%= paginate @shouts %>
 

@@ -2,7 +2,7 @@
 
 <section>
   <h3>Create Text Shout</h3>
-  <fieldset>
+  <fieldset style="width: 400px">
   <%= form_for @text_shout do |form| %>
     <div>
       <%= form.label :body, "Text: " %>
@@ -15,7 +15,7 @@
 
 <section>
   <h3>Create Photo Shout</h3>
-  <fieldset>
+  <fieldset style="width: 400px">
   <%= form_for @photo_shout do |form| %>
     <div>
       <%= form.label :url, "url: " %>
@@ -29,5 +29,8 @@
 
 <h2>Your Timeline</h2>
 <div>
-  <%= render current_user.timeline %>
+  <%= render @shouts %>
 </div>
+
+<%= paginate @shouts %>
+
