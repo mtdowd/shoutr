@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   resources :photo_shouts, only: [:create]
   resource :search, only: [:show]
 
+  resources :shouts, only: [] do
+    resource :like
+  end
+
   get "/sign_up" => "users#new"
   get "/sign_in" => "sessions#new"
 

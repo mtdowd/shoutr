@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :shouts
 
+  has_many :likes
+  has_many :liked_shouts, through: :likes, source: :shout
+
   has_many :following_relationships, foreign_key: :follower_id, class_name: "FollowRelationship"
   has_many :followed_users, through: :following_relationships
 

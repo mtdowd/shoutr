@@ -1,7 +1,21 @@
 
 <div>
   <p><b><i><%= render shout.content %></i></b></p>
-  <p> -- Shouted by: <%= link_to shout.username, shout.user %>
-   - - Shouted <%= time_ago_in_words(shout.created_at) %> ago</p>
+  <p>
+    -- Shouted by: <%= link_to shout.username, shout.user %>
+    - - Shouted <%= time_ago_in_words(shout.created_at) %> ago
+  </p>
+
+  <% unless current_user == shout.user %>
+    <% if current_user.liked_shouts.include?(shout) %>
+      <%= button_to "Unlike", shout_like_path(shout), method: :delete %>
+      <%= pluralize(shout.likes.count, "like") %>
+    <% else %>
+      <%= button_to "Like", shout_like_path(shout) %>
+    <% end %>
+  <% end %>
+
 </div>
+
+<hr>
 
