@@ -15,12 +15,13 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show] do
     member do
       post "follow" => "follows#create"
-      delete "follow" => "follows#destory"
+      delete "follow" => "follows#destroy"
     end
   end
 
   resources :text_shouts, only: [:create]
   resources :photo_shouts, only: [:create]
+
   resource :search, only: [:show]
 
   resources :shouts, only: [] do

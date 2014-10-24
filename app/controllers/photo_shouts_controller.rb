@@ -1,13 +1,17 @@
 class PhotoShoutsController < ApplicationController
+  before_action :require_login
 
   def create
     @photo_shout = PhotoShout.new(photo_shout_params)
-    shout = current_user.shouts.new(content: @photo_shout)
+    @text_shout = TextShout.new
+    @shouts = current_user.timeline.page(params[:page])
 
-    if shout.save
+    if @photo_shout.save
+      current_user.shouts.create(content: @photo_shout)
+      flash[:notice] = "Shout created"
       redirect_to dashboard_path
     else
-      render :new
+      render "dashboards/show"
     end
   end
 

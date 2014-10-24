@@ -6,10 +6,12 @@ class FollowsController < ApplicationController
 
     flash[:notice] = "You are now following #{@user.username}"
 
+    UserMailer.follow_notification(@user, current_user).deliver
+
     redirect_to @user
   end
 
-  def destory
+  def destroy
     @user = User.find_by(username: params[:id])
     current_user.unfollow(@user)
 

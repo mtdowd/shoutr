@@ -1,12 +1,10 @@
 class TextShoutsController < ApplicationController
   before_action :require_login
 
-  def new
-    @shout = Shout.new
-  end
-
   def create
     @text_shout = TextShout.new(text_shout_params)
+    @photo_shout = PhotoShout.new
+    @shouts = current_user.timeline.page(params[:page])
 
     if @text_shout.save
       current_user.shouts.create(content: @text_shout)

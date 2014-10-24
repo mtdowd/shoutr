@@ -1,6 +1,6 @@
 
 <div>
-  <p> User: <%= link_to user.username %></p>
+  <p> User: <%= link_to user.username, user_path(user.username) %></p>
   <!-- <p> &#45;&#45; <%= user.followers.count %> <%="follower".pluralize(user.followers.count) %></p> -->
   <p> -- <%= pluralize(user.followers.count, "follower") %></p>
 </div>
